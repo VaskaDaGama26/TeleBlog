@@ -4,6 +4,10 @@ import Reactions from "../UI/Reactions/Reactions";
 import back from "/keyboard_backspace.svg";
 import type { Post } from "../../types/Post";
 
+import "react-loading-skeleton/dist/skeleton.css";
+import ImageWithSkeleton from "../UI/ImageWithSkeleton/ImageWithSkeleton";
+import { imageConfig } from "../../config/ImageConfig";
+
 interface DetailsProps {
   postId: string;
   post: Post;
@@ -11,6 +15,8 @@ interface DetailsProps {
 }
 
 const Details: React.FC<DetailsProps> = ({ postId, post, onBack }) => {
+  const { width, height, src } = imageConfig["medium"];
+
   return (
     <div className={classes.container}>
       <div className={classes.row}>
@@ -24,10 +30,7 @@ const Details: React.FC<DetailsProps> = ({ postId, post, onBack }) => {
       <div className={classes.column}>
         <h1 className={classes.heading}>{post.title}</h1>
         <div className={classes.content}>
-          <img
-            src="https://placehold.jp/6c70ac/d1d1d1/848x477.png"
-            alt="Изображение"
-          />
+          <ImageWithSkeleton src={src} width={width} height={height} />
           <p className={classes.desc}>{post.body}</p>
         </div>
       </div>

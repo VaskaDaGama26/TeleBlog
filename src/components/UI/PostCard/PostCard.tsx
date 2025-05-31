@@ -2,8 +2,13 @@ import React from "react";
 import classes from "./PostCard.module.css";
 import ReadMoreButton from "../ReadMoreButton/ReadMoreButton";
 import Reactions from "../Reactions/Reactions";
+import ImageWithSkeleton from "../ImageWithSkeleton/ImageWithSkeleton";
+import { imageConfig } from "../../../config/ImageConfig";
+
+type Size = "small" | "large";
 
 interface PostCardProps {
+  size: Size;
   postId: string;
   title: string;
   body: string;
@@ -12,23 +17,18 @@ interface PostCardProps {
 }
 
 const PostCard: React.FC<PostCardProps> = ({
+  size,
   postId,
   title,
   body,
   isFeatured = false,
   onReadMore,
 }) => {
+  const { width, height, src } = imageConfig[size];
+
   return (
     <article className={classes.article}>
-      <img
-        className={classes.article__image}
-        src={
-          isFeatured
-            ? "https://placehold.jp/6c70ac/d1d1d1/1140x600.png"
-            : "https://placehold.jp/6c70ac/d1d1d1/558x273.png"
-        }
-        alt="Изображение"
-      />
+      <ImageWithSkeleton src={src} width={width} height={height} />
 
       <div className={classes.article__content}>
         <h2 className={classes.content__heading}>{title}</h2>

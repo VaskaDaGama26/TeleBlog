@@ -32,6 +32,7 @@ const PostGrid: React.FC<PostGridProps> = ({ onSelectPost }) => {
     <div className={classes.container}>
       {filteredPosts.map((card, index) => (
         <PostCard
+          size={index === 0 ? "large" : "small"}
           isFeatured={index === 0}
           key={card.id}
           postId={card.id}
