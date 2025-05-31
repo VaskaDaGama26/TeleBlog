@@ -3,12 +3,12 @@ import classes from "./ReadMoreButton.module.css";
 
 interface ButtonProps {
   label: string;
+  onClick: () => void;
 }
 
-const ReadMoreButton: React.FC<ButtonProps> = ({ label }) => {
-  const handleClick = () => {};
+const ReadMoreButton: React.FC<ButtonProps> = ({ label, onClick }) => {
   return (
-    <button onClick={handleClick} className={classes.button}>
+    <button onClick={onClick} className={classes.button}>
       {label}
     </button>
   );

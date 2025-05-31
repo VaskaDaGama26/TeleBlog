@@ -1,39 +1,38 @@
 import React from "react";
 import classes from "./Details.module.css";
-import Reviews from "../UI/Reviews/Reviews";
+import Reactions from "../UI/Reactions/Reactions";
 import back from "/keyboard_backspace.svg";
+import type { Post } from "../../types/Post";
 
-const Details = () => {
+import middle from "/848-477.svg";
+
+interface DetailsProps {
+  postId: string;
+  post: Post;
+  onBack: () => void;
+}
+
+const Details: React.FC<DetailsProps> = ({ postId, post, onBack }) => {
   return (
     <div className={classes.container}>
       <div className={classes.row}>
-        <div className={classes.back}>
+        <button onClick={onBack} className={classes.back__button}>
           <img src={back} alt="Вернуться к статьям" />
-          <button className={classes.back__button}>Вернуться к статьям</button>
-        </div>
+          Вернуться к статьям
+        </button>
 
-        <Reviews />
+        <Reactions postId={postId} />
       </div>
       <div className={classes.column}>
-        <h1 className={classes.heading}>
-          Что нужно знать об эффективной интернет-рекламе?
-        </h1>
+        <h1 className={classes.heading}>{post.title}</h1>
         <div className={classes.content}>
           <img
             className={classes.img}
-            src="https://placehold.co/848x477"
-            alt=""
+            src={middle}
+            // src="https://placehold.co/848x477"
+            alt="Изображение"
           />
-          <p className={classes.desc}>
-            Интернет - огромный ресурс, позволяющий продвигать свои услуги
-            практически на любую аудиторию. Ежедневно в сеть выходит более 5
-            миллиардов людей - каждый из них может увидеть вашу рекламу и стать
-            вашим потенциальным клиентом. Даже небольшого процента этой
-            аудитории будет достаточно для эффективного продвижения ваших услуг.
-            Это огромное преимущество интернета перед другими каналами
-            коммуникации. И в этом же заключается его главный недостаток -
-            переизбыток информации и высокая конкуренция.
-          </p>
+          <p className={classes.desc}>{post.body}</p>
         </div>
       </div>
     </div>
