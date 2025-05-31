@@ -7,14 +7,14 @@ interface ImageWithSkeletonProps {
   width: string;
   height: string;
   src: string;
-  classes: string;
+  classes?: string;
 }
 
 const ImageWithSkeleton: React.FC<ImageWithSkeletonProps> = ({
   width,
   height,
   src,
-  classes,
+  classes = "",
 }) => {
   const [loaded, setLoaded] = useState(false);
   return (
