@@ -5,7 +5,7 @@ import back from "/keyboard_backspace.svg";
 import type { Post } from "../../types/Post";
 
 import "react-loading-skeleton/dist/skeleton.css";
-import ImageWithSkeleton from "../UI/ImageWithSkeleton/ImageWithSkeleton";
+import ImageWithSkeleton from "../UI/ImageWithSkeleton";
 import { imageConfig } from "../../config/ImageConfig";
 
 interface DetailsProps {

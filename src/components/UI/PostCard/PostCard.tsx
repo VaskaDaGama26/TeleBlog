@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./PostCard.module.css";
 import ReadMoreButton from "../ReadMoreButton/ReadMoreButton";
 import Reactions from "../Reactions/Reactions";
-import ImageWithSkeleton from "../ImageWithSkeleton/ImageWithSkeleton";
+import ImageWithSkeleton from "../ImageWithSkeleton";
 import { imageConfig } from "../../../config/ImageConfig";
 
 type Size = "small" | "large";
@@ -28,7 +28,12 @@ const PostCard: React.FC<PostCardProps> = ({
 
   return (
     <article className={classes.article}>
-      <ImageWithSkeleton src={src} width={width} height={height} />
+      <ImageWithSkeleton
+        classes={classes.article__image}
+        src={src}
+        width={width}
+        height={height}
+      />
 
       <div className={classes.article__content}>
         <h2 className={classes.content__heading}>{title}</h2>
