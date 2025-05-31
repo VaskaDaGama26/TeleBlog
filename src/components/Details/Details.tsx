@@ -4,8 +4,6 @@ import Reactions from "../UI/Reactions/Reactions";
 import back from "/keyboard_backspace.svg";
 import type { Post } from "../../types/Post";
 
-import middle from "/848-477.svg";
-
 interface DetailsProps {
   postId: string;
   post: Post;
@@ -27,9 +25,7 @@ const Details: React.FC<DetailsProps> = ({ postId, post, onBack }) => {
         <h1 className={classes.heading}>{post.title}</h1>
         <div className={classes.content}>
           <img
-            className={classes.img}
-            src={middle}
-            // src="https://placehold.co/848x477"
+            src="https://placehold.jp/6c70ac/d1d1d1/848x477.png"
             alt="Изображение"
           />
           <p className={classes.desc}>{post.body}</p>

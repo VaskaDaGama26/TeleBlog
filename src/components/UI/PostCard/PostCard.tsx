@@ -3,9 +3,6 @@ import classes from "./PostCard.module.css";
 import ReadMoreButton from "../ReadMoreButton/ReadMoreButton";
 import Reactions from "../Reactions/Reactions";
 
-import small from "/558-273.svg";
-import big from "/1140-600.svg";
-
 interface PostCardProps {
   postId: string;
   title: string;
@@ -25,12 +22,11 @@ const PostCard: React.FC<PostCardProps> = ({
     <article className={classes.article}>
       <img
         className={classes.article__image}
-        // src={
-        //   isFeatured === false
-        //     ? "https://placehold.co/558x273"
-        //     : "https://placehold.co/1140x600"
-        // }
-        src={isFeatured === false ? small : big}
+        src={
+          isFeatured
+            ? "https://placehold.jp/6c70ac/d1d1d1/1140x600.png"
+            : "https://placehold.jp/6c70ac/d1d1d1/558x273.png"
+        }
         alt="Изображение"
       />
 
